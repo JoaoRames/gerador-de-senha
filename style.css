@@ -1,56 +1,38 @@
-/* Importa uma fonte estilo terminal pixelado */
-@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+/* ... mantenha o restante do código anterior ... */
 
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: 'VT323', 'Courier New', Courier, monospace;
-}
-
-body {
-    background-color: #000000;
-    color: #00ff00; /* Verde clássico de monitor fósforo */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    padding: 20px;
-}
-
-.container {
-    background-color: #000000;
-    border: 2px solid #00ff00;
-    padding: 25px;
-    width: 100%;
-    max-width: 550px;
-    box-shadow: 0 0 15px rgba(0, 255, 0, 0.2);
-}
-
-h2 {
-    text-align: center;
-    margin-bottom: 25px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
-
-.result-container {
-    background-color: #000000;
-    padding: 10px;
+/* Estilo padrão para as opções (Desmarcado = Vermelho) */
+.option {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 25px;
-    border: 1px dashed #00ff00;
+    font-size: 1.3rem;
+    color: #ff0000; /* Vermelho padrão */
+    transition: color 0.2s ease;
 }
 
-#password-display {
-    font-size: 1.5rem;
-    word-break: break-all;
-    color: #ffffff; /* Senha em branco para destacar no terminal */
+/* Classe que será aplicada via JS quando estiver marcado (Marcado = Verde) */
+.option.active {
+    color: #00ff00;
 }
 
-#copy-btn {
-    background-color: #00ff00;
-    color: #000000;
-    border
+/* Ajuste na caixa de seleção para combinar com o estado */
+input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 16px;
+    height: 16px;
+    border: 1px solid currentColor; /* O botão assume a cor do texto (vermelho ou verde) */
+    background-color: #000000;
+    cursor: pointer;
+    position: relative;
+}
+
+input[type="checkbox"]:checked::before {
+    content: "X";
+    position: absolute;
+    color: #00ff00;
+    font-size: 14px;
+    font-weight: bold;
+    top: -3px;
+    left: 3px;
+}
